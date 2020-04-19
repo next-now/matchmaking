@@ -48,8 +48,25 @@ export default function AskForHelp() {
           <form onSubmit={(event) => {
             event.preventDefault();
             console.log("done");
-            const data = new FormData(event.target);
-            //data.get(".....")
+            const formData = new FormData(event.target);
+
+            const title = formData.get("title");
+            const description = formData.get("description");
+            const expirationDate = formData.get("expirationDate");
+            const durationInHours = formData.get("durationInHours");
+            const location = formData.get("location");
+            const categories = [];
+            if (education)
+              categories.push(1);
+            if (shopping)
+              categories.push(2);
+            if (delivery)
+              categories.push(3);
+            if (medical)
+              categories.push(4);
+
+            const data = {title, description, expirationDate, durationInHours, location}
+
           }}>
           <Card>
             <CardHeader color="primary">
@@ -65,7 +82,8 @@ export default function AskForHelp() {
                       fullWidth: true
                     }}
                     inputProps={{
-                      name: "title"
+                      name: "title",
+                      required: true
                     }}
                   />
                 </GridItem>
@@ -78,7 +96,8 @@ export default function AskForHelp() {
                       }}
                       inputProps={{
                         name: "expirationDate",
-                        type: "date"
+                        type: "date",
+                        required: true
                       }}
                   />
                 </GridItem>
@@ -91,7 +110,8 @@ export default function AskForHelp() {
                     }}
                     inputProps={{
                       name: "durationInHours",
-                      type: "number"
+                      type: "number",
+                      required: true
                     }}
                   />
                 </GridItem>
@@ -105,7 +125,8 @@ export default function AskForHelp() {
                       fullWidth: true
                     }}
                     inputProps={{
-                      name: "location"
+                      name: "location",
+                      required: true
                     }}
                   />
                 </GridItem>
@@ -120,40 +141,48 @@ export default function AskForHelp() {
                     }}
                     inputProps={{
                       multiline: true,
-                      rows: 5
+                      rows: 5,
+                      required: true
                     }}
                   />
                 </GridItem>
               </GridContainer>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={3}>
-                  <Checkbox
-                      checked={education}
-                      inputProps={{ 'aria-label': 'primary checkbox' }}
-                      name="category"
+                  <FormControlLabel
+                      control={<Checkbox
+                          checked={education}
+                          inputProps={{ 'aria-label': 'primary checkbox' }}
+                         name="category[]"
+                          label={"Education"}
+                          value={1}
+                          onChange={() => setEducation(!education)}
+                      />
+                      }
                       label={"Education"}
-                      value={1}
-                      onChange={() => setEducation(!education)}
-
-                  />
+                      />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
-                  <Checkbox
-                      checked={delivery}
-                      inputProps={{ 'aria-label': 'primary checkbox' }}
-                      name="category"
-                      label={"Delivery"}
-                      value={2}
-                      onChange={() => setDelivery(!delivery)}
+                  <FormControlLabel
+                      control={<Checkbox
+                          checked={delivery}
+                          inputProps={{'aria-label': 'primary checkbox'}}
+                         name="category[]"
+                          label={"Delivery"}
+                          value={2}
+                          onChange={() => setDelivery(!delivery)}
 
-                  />
+                      />
+                      }
+                      label={"Delivery"}
+                      />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
                   <FormControlLabel
                       control={<Checkbox
                           checked={shopping}
                           inputProps={{'aria-label': 'primary checkbox'}}
-                          name="category"
+                         name="category[]"
                           label={"Shopping"}
                           value={3}
                           onChange={() => setShopping(!shopping)}
@@ -169,7 +198,7 @@ export default function AskForHelp() {
                         <Checkbox
                             checked={medical}
                             inputProps={{ 'aria-label': 'primary checkbox' }}
-                            name="category"
+                           name="category[]"
                             label={"Medical"}
                             value={4}
                             onChange={() => setMedical(!medical)}
