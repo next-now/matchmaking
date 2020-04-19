@@ -33,6 +33,7 @@ import TableList from "views/TableList/TableList.js";
 import Typography from "views/Typography/Typography.js";
 import Icons from "views/Icons/Icons.js";
 import Maps from "views/Maps/Maps.js";
+import RequestMaps from "views/RequestsMap/RequestMap.js";
 import NotificationsPage from "views/Notifications/Notifications.js";
 import AskForHelp from "./views/AskForHelp/AskForHelp";
 // core components/views for RTL layout
@@ -70,45 +71,22 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/table",
-    name: "Table List",
-    rtlName: "قائمة الجدول",
-    icon: "content_paste",
-    component: TableList,
-    layout: "/admin"
-  },
-  {
-    path: "/typography",
-    name: "Typography",
-    rtlName: "طباعة",
-    icon: LibraryBooks,
-    component: Typography,
-    layout: "/admin"
-  },
-  {
-    path: "/icons",
-    name: "Icons",
-    rtlName: "الرموز",
-    icon: BubbleChart,
-    component: Icons,
-    layout: "/admin"
-  },
-  {
-    path: "/maps",
-    name: "Maps",
+    path: "/givers-map",
+    name: "Givers Maps",
     rtlName: "خرائط",
     icon: LocationOn,
     component: Maps,
     layout: "/admin"
   },
   {
-    path: "/notifications",
-    name: "Notifications",
-    rtlName: "إخطارات",
-    icon: Notifications,
-    component: NotificationsPage,
+    path: "/seekers-map",
+    name: "Seekers Maps",
+    rtlName: "خرائط",
+    icon: LocationOn,
+    component: RequestMaps,
     layout: "/admin"
-  }
+  },
+
 ];
 
 export default dashboardRoutes;
