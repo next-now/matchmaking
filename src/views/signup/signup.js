@@ -59,7 +59,9 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} onSubmit={(event) =>{
+          debugger;
+        }}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -134,6 +136,7 @@ export default function SignUp() {
           >
             Sign Up
           </Button>
+
           <Grid container justify="flex-end">
             <Grid item>
               <Link href="#" variant="body2">
