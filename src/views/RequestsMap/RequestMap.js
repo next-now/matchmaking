@@ -35,7 +35,7 @@ const customMarkerUseStyles = makeStyles((theme) => ({
 }));
 
 
-const CustomMarker = ({name, hasCar, maxDistance, categories}) => {
+const CustomMarker = ({title, desc, categories}) => {
     const classes = customMarkerUseStyles();
 
     return (
@@ -45,36 +45,13 @@ const CustomMarker = ({name, hasCar, maxDistance, categories}) => {
                     className={classes.heading}
                     expandIcon={<ExpandMoreIcon/>}
                     aria-controls="panel1a-content">
-                    <Box alignItems="center" display="flex">
-                        <Box>
-                            <Avatar>{name.split(" ").map(x => x[0]).join("")}</Avatar>
-                        </Box>
-                        <Box m={2}>
-                            <Typography align={'left'}>{name}</Typography>
-                        </Box>
-                    </Box>
+
+                            <Typography align={'left'}>{title}</Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     <Grid container>
-                        <Grid item xs={6}>
-                            <Box alignItems="center" display="flex">
-                                <Box>
-                                    <DriveEtaIcon/>
-                                </Box>
-                                <Box m={2}>
-                                    <Typography align={'left'}>{hasCar ? "Has a car" : "No car"}</Typography>
-                                </Box>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={6}>
-                            <Box alignItems="center" display="flex">
-                                <Box>
-                                    <RoomIcon/>
-                                </Box>
-                                <Box m={2}>
-                                    <Typography align={'left'}>{maxDistance}</Typography>
-                                </Box>
-                            </Box>
+                        <Grid item xs={12}>
+                            <Typography align={'left'}>{desc}</Typography>
                         </Grid>
                         <Grid item xs={12}>
                             <Box alignItems="center" display="flex">
@@ -109,8 +86,8 @@ const Maps = (props) => {
             })
     }, []);
     const children = data.map( item =>
-        <CustomMarker key={item.id} lat={item.lat} lng={item.lon} name={"TEST"} hasCar={true} maxDistance={"30 KM"}
-                      categories={" Elderly care, Shopping"}/>)
+        <CustomMarker key={item.id} lat={item.lat} lng={item.lon} title={item.title} desc={item.description}
+                      categories={item.categories.map(c => c.name).join(", ")}/>)
     console.log(children)
     return (
         <div style={{height: '100vh', width: '100%'}}>
