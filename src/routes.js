@@ -26,7 +26,8 @@ import Unarchive from "@material-ui/icons/Unarchive";
 import Language from "@material-ui/icons/Language";
 // core components/views for Admin layout
 import DashboardPage from "views/Dashboard/Dashboard.js";
-import Signup from "views/signup/signup.js";
+import Login from "views/login/login.js";
+import SignUp from "views/signup/signup.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
 import TableList from "views/TableList/TableList.js";
 import Typography from "views/Typography/Typography.js";
@@ -51,7 +52,15 @@ const dashboardRoutes = [
     name: "Signup",
     rtlName: "لوحة القيادة",
     icon: Person,
-    component: Signup,
+    component: SignUp,
+    layout: "/admin"
+  },
+  {
+    path: "/login",
+    name: "LoginTab",
+    rtlName: "لوحة القيادة",
+    icon: Person,
+    component: Login,
     layout: "/admin"
   },
   {
