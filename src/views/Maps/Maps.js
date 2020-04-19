@@ -91,10 +91,11 @@ const CustomMarker = ({name, hasCar, maxDistance, categories }) => {
                             </Box>
                         </Grid>
                         <Grid> <Box>
-                                    <Button onClick={alert("User notified")} type="submit" fullWidth  align={'center'} variant="contained" color="primary" className={classes.submit}>
-                                   Ask for help
-                                </Button>
-                                </Box></Grid>
+                            <Button onClick={() => alert("User notified")} fullWidth align={'center'}
+                                    variant="contained" color="primary" className={classes.submit}>
+                                Ask for help
+                            </Button>
+                        </Box></Grid>
                     </Grid>
 
                 </ExpansionPanelDetails>
