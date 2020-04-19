@@ -1,3 +1,3 @@
 export default {
-    url: "http://localhost:3000/api/v0"
+    url: "https://backend.next-now.site/api/v0/"
 }
