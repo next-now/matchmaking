@@ -2,7 +2,6 @@ import React from "react";
 
 import GoogleMapReact from 'google-map-react';
 
-import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
@@ -26,9 +25,6 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 
 
-
-const useStyles = makeStyles(styles);
-
 const customMarkerUseStyles= makeStyles((theme) => ({
     root: {
         width: '300px',
@@ -47,7 +43,6 @@ const customMarkerUseStyles= makeStyles((theme) => ({
 
 const CustomMarker = ({name, hasCar, maxDistance, categories }) => {
     const classes = customMarkerUseStyles();
-    const emails = ['username@gmail.com', 'user02@gmail.com'];
 
     const [open, setOpen] = React.useState(false);
 
@@ -145,7 +140,6 @@ const CustomMarker = ({name, hasCar, maxDistance, categories }) => {
 };
 
 const Maps = (props) =>  {
-    const classes = useStyles();
     return (
         // Important! Always set the container height explicitly
         <div style={{ height: '100vh', width: '100%' }}>

@@ -2,24 +2,17 @@ import React, {useEffect, useState} from "react";
 
 import GoogleMapReact from 'google-map-react';
 
-import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
-import Avatar from "@material-ui/core/Avatar";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
-import DriveEtaIcon from '@material-ui/icons/DriveEta';
-import RoomIcon from '@material-ui/icons/Room';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import config from "../../config";
-import CircularProgress from '@material-ui/core/CircularProgress';
 
-
-const useStyles = makeStyles(styles);
 
 const customMarkerUseStyles = makeStyles((theme) => ({
     root: {
@@ -73,14 +66,11 @@ const CustomMarker = ({title, desc, categories}) => {
 };
 
 const Maps = (props) => {
-    const classes = useStyles();
     const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
     useEffect(() => {
         fetch(`${config.url}/help-requests`)
             .then(res => res.json())
             .then(json => {
-                setLoading(false);
                 setData(json.data);
                 console.log(json)
             })
