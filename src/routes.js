@@ -37,7 +37,8 @@ const dashboardRoutes = [
     rtlName: "لوحة القيادة",
     icon: Person,
     component: SignUp,
-    layout: "/soci-hunt"
+    layout: "/soci-hunt",
+    requiredLogin: false
   },
   {
     path: "/login",
@@ -45,7 +46,8 @@ const dashboardRoutes = [
     rtlName: "لوحة القيادة",
     icon: Person,
     component: Login,
-    layout: "/soci-hunt"
+    layout: "/soci-hunt",
+    requiredLogin: false
   },
   {
     path: "/user",
@@ -53,14 +55,16 @@ const dashboardRoutes = [
     rtlName: "ملف تعريفي للمستخدم",
     icon: Dashboard,
     component: UserProfile,
-    layout: "/soci-hunt"
+    layout: "/soci-hunt",
+    requiredLogin: true
   },
   {
     path: "/help-request",
     name: "Ask for help",
     icon: LiveHelpIcon,
     component: AskForHelp,
-    layout: "/soci-hunt"
+    layout: "/soci-hunt",
+    requiredLogin: true
   },
   {
     path: "/givers-map",
@@ -68,7 +72,8 @@ const dashboardRoutes = [
     rtlName: "خرائط",
     icon: LocationOn,
     component: Maps,
-    layout: "/soci-hunt"
+    layout: "/soci-hunt",
+    requiredLogin: true
   },
   {
     path: "/seekers-map",
@@ -76,7 +81,8 @@ const dashboardRoutes = [
     rtlName: "خرائط",
     icon: LocationOn,
     component: RequestMaps,
-    layout: "/soci-hunt"
+    layout: "/soci-hunt",
+    requiredLogin: true
   },
 
 ];
