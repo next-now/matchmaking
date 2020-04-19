@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 // @material-ui/core components
 import {makeStyles} from "@material-ui/core/styles";
+import config from "../../config"
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -66,6 +67,22 @@ export default function AskForHelp() {
               categories.push(4);
 
             const data = {title, description, expirationDate, durationInHours, location}
+
+            // fetch(`${config.url}/help-requests`, {
+            fetch(`${config.url}help-requests`, {
+              // TODO: extract host into an env var
+              method: 'POST',
+              mode: 'cors',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': localStorage.getItem('token')
+              },
+              body: JSON.stringify(data),
+              redirect: 'follow',
+              referrerPolicy: 'no-referrer',
+            })
+                .then((reply) => reply.json())
+                .then(json=> console.log(json));
 
           }}>
           <Card>
@@ -210,7 +227,7 @@ export default function AskForHelp() {
               </GridContainer>
             </CardBody>
             <CardFooter>
-              <Button color="primary" type="submit">Update Profile</Button>
+              <Button color="primary" type="submit">Ask for help!</Button>
             </CardFooter>
           </Card>
           </form>
