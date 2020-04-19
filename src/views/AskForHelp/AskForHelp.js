@@ -86,7 +86,7 @@ export default function AskForHelp() {
 
           }}>
           <Card>
-            <CardHeader color="primary">
+            <CardHeader color="info">
               <h4 className={classes.cardTitleWhite}>Add help request</h4>
             </CardHeader>
             <CardBody>
@@ -227,7 +227,7 @@ export default function AskForHelp() {
               </GridContainer>
             </CardBody>
             <CardFooter>
-              <Button color="primary" type="submit">Ask for help!</Button>
+              <Button color="info" type="submit">Ask for help!</Button>
             </CardFooter>
           </Card>
           </form>
