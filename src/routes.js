@@ -26,11 +26,10 @@ import Notifications from "@material-ui/icons/Notifications";
 import Unarchive from "@material-ui/icons/Unarchive";
 import Language from "@material-ui/icons/Language";
 // core components/views for Admin layout
-import DashboardPage from "views/Dashboard/Dashboard.js";
-import Signup from "views/signup/signup.js";
+import Login from "views/login/login.js";
+import SignUp from "views/signup/signup.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
 import TableList from "views/TableList/TableList.js";
-import Typography from "views/Typography/Typography.js";
 import Icons from "views/Icons/Icons.js";
 import Maps from "views/Maps/Maps.js";
 import RequestMaps from "views/RequestsMap/RequestMap.js";
@@ -39,27 +38,28 @@ import AskForHelp from "./views/AskForHelp/AskForHelp";
 // core components/views for RTL layout
 
 const dashboardRoutes = [
-  {
-    path: "/dashboard",
-    name: "Dashboard",
-    rtlName: "لوحة القيادة",
-    icon: Dashboard,
-    component: DashboardPage,
-    layout: "/admin"
-  },
+
   {
     path: "/signup",
     name: "Signup",
     rtlName: "لوحة القيادة",
     icon: Person,
-    component: Signup,
+    component: SignUp,
+    layout: "/admin"
+  },
+  {
+    path: "/login",
+    name: "Login",
+    rtlName: "لوحة القيادة",
+    icon: Person,
+    component: Login,
     layout: "/admin"
   },
   {
     path: "/user",
     name: "User Profile",
     rtlName: "ملف تعريفي للمستخدم",
-    icon: Person,
+    icon: Dashboard,
     component: UserProfile,
     layout: "/admin"
   },

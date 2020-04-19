@@ -15,6 +15,16 @@ import Grid from "@material-ui/core/Grid";
 import DriveEtaIcon from '@material-ui/icons/DriveEta';
 import RoomIcon from '@material-ui/icons/Room';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
+import Button from '@material-ui/core/Button';
+
+
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+
+
 
 
 const useStyles = makeStyles(styles);
@@ -33,8 +43,21 @@ const customMarkerUseStyles= makeStyles((theme) => ({
 }));
 
 
+
+
 const CustomMarker = ({name, hasCar, maxDistance, categories }) => {
     const classes = customMarkerUseStyles();
+    const emails = ['username@gmail.com', 'user02@gmail.com'];
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+    setOpen(true);
+    };
+
+    const handleClose = () => {
+    setOpen(false);
+    };
 
     return (
         <div className={classes.root}>
@@ -62,6 +85,7 @@ const CustomMarker = ({name, hasCar, maxDistance, categories }) => {
                                 <Box m={2}>
                                     <Typography align={'left'}>{ hasCar? "Has a car" : "No car"}</Typography>
                                 </Box>
+                                
                             </Box>
                         </Grid>
                         <Grid item xs={6}>
@@ -73,6 +97,7 @@ const CustomMarker = ({name, hasCar, maxDistance, categories }) => {
                                     <Typography align={'left'} >{maxDistance}</Typography>
                                 </Box>
                             </Box>
+
                         </Grid>
                         <Grid item xs={12}>
                             <Box alignItems="center" display="flex">
@@ -84,6 +109,32 @@ const CustomMarker = ({name, hasCar, maxDistance, categories }) => {
                                 </Box>
                             </Box>
                         </Grid>
+                        <Grid> <Box>
+
+                                    <Button onClick={handleClickOpen} type="submit" fullWidth  align={'center'} variant="contained" color="primary" className={classes.submit}>
+                                   Ask for help
+                                </Button>
+                                <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{"Success"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+          The user providing help has been notified and will get back to you soon
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+        
+          <Button onClick={handleClose} color="primary" autoFocus>
+            Acknowledge
+          </Button>
+        </DialogActions>
+      </Dialog>
+                           
+                                </Box></Grid>
                     </Grid>
 
                 </ExpansionPanelDetails>
