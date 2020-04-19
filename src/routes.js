@@ -46,7 +46,7 @@ const dashboardRoutes = [
   },
   {
     path: "/login",
-    name: "LoginTab",
+    name: "Login",
     rtlName: "لوحة القيادة",
     icon: Person,
     component: Login,
@@ -61,11 +61,11 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/table",
-    name: "Table List",
-    rtlName: "قائمة الجدول",
-    icon: "content_paste",
-    component: TableList,
+    path: "/maps",
+    name: "Maps",
+    rtlName: "خرائط",
+    icon: LocationOn,
+    component: Maps,
     layout: "/admin"
   },
 
@@ -77,14 +77,7 @@ const dashboardRoutes = [
     component: Icons,
     layout: "/admin"
   },
-  {
-    path: "/maps",
-    name: "Maps",
-    rtlName: "خرائط",
-    icon: LocationOn,
-    component: Maps,
-    layout: "/admin"
-  },
+ 
   {
     path: "/notifications",
     name: "Notifications",

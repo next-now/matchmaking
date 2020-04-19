@@ -55,6 +55,7 @@ export default function UserProfile() {
             <CardHeader color="info">
               <h4 className={classes.cardTitleWhite}>Edit Profile</h4>
               <p className={classes.cardCategoryWhite}>Complete your profile</p>
+             
             </CardHeader>
             <CardBody>
               <GridContainer>
