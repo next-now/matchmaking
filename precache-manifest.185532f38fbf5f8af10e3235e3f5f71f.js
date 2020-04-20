@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7dc22a3a9cde7a7c3f84cabc0a453590",
+    "revision": "9cf263df0815a3d83859952bcb6e3d25",
     "url": "/soci-hunt/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/soci-hunt/static/css/2.d0176e96.chunk.css"
   },
   {
-    "revision": "054e7ebc6f83f028e841",
+    "revision": "4fdbd13c6cf11efbce46",
     "url": "/soci-hunt/static/css/main.36501932.chunk.css"
   },
   {
@@ -20,12 +20,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/soci-hunt/static/js/2.70bf7200.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "054e7ebc6f83f028e841",
-    "url": "/soci-hunt/static/js/main.b885b907.chunk.js"
+    "revision": "4fdbd13c6cf11efbce46",
+    "url": "/soci-hunt/static/js/main.05c13068.chunk.js"
   },
   {
     "revision": "7269b0c4207b44d8a9e4f0b85c8a81d2",
-    "url": "/soci-hunt/static/js/main.b885b907.chunk.js.LICENSE.txt"
+    "url": "/soci-hunt/static/js/main.05c13068.chunk.js.LICENSE.txt"
   },
   {
     "revision": "6eebc4659526c494cd8a",
