@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -60,7 +61,34 @@ export default function SignUp() {
           Sign up
         </Typography>
         <form className={classes.form} onSubmit={(event) =>{
-          debugger;
+          event.preventDefault();
+          const formData = new FormData(event.target);
+          const values = {
+            name: formData.get("firstName") + " " + formData.get("lastName"),
+            username: formData.get("username"),
+            email: formData.get("email"),
+            password: formData.get("password"),
+            hasCar: false,
+            "giverProfileActive": false,
+            "availabilityStartTime": "15:30",
+            "availabilityEndTime": "18:30",
+            "address": "5 Queen St, M5C 2L7, Canada",
+            "categoriesIds": [0]
+          };
+          console.log(values);
+          fetch(`https://backend.next-now.site/api/v0/users`, {
+            // TODO: extract host into an env var
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(values),
+            redirect: 'follow',
+            referrerPolicy: 'no-referrer',
+          })
+              .then(() => {
+              });
         }}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
@@ -93,7 +121,7 @@ export default function SignUp() {
                 fullWidth
                 id="userName"
                 label="User Name"
-                name="user name"
+                name="username"
                 autoComplete="username"
               />
             </Grid>

@@ -57,7 +57,31 @@ export default function Login() {
         <Typography component="h1" variant="h5">
           Login
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form}  onSubmit={(event) => {
+          event.preventDefault();
+          const formData = new FormData(event.target);
+          const values = {
+            username: formData.get("username"),
+            password: formData.get("password")
+          };
+          fetch(`https://backend.next-now.site/api/v0/auth/login`, {
+            // TODO: extract host into an env var
+
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(values),
+            redirect: 'follow',
+            referrerPolicy: 'no-referrer',
+          })
+              .then(response => response.json())
+              .then(body => {
+                localStorage.setItem('token', body.token.token);
+                localStorage.setItem('user', JSON.stringify(body.data));
+              });
+        }}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField

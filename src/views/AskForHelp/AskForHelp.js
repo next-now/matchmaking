@@ -54,19 +54,19 @@ export default function AskForHelp() {
             const title = formData.get("title");
             const description = formData.get("description");
             const expirationDate = formData.get("expirationDate");
-            const durationInHours = formData.get("durationInHours");
+            const durationInHours = Number(formData.get("durationInHours"));
             const location = formData.get("location");
-            const categories = [];
+            const categoriesIds = [];
             if (education)
-              categories.push(1);
+              categoriesIds.push(1);
             if (shopping)
-              categories.push(2);
+              categoriesIds.push(2);
             if (delivery)
-              categories.push(3);
+              categoriesIds.push(3);
             if (medical)
-              categories.push(4);
+              categoriesIds.push(4);
 
-            const data = {title, description, expirationDate, durationInHours, location}
+            const data = {title, description, expirationDate, durationInHours, location, categoriesIds}
 
             // fetch(`${config.url}/help-requests`, {
             fetch(`${config.url}help-requests`, {
@@ -157,6 +157,7 @@ export default function AskForHelp() {
                       fullWidth: true
                     }}
                     inputProps={{
+                      name: "description",
                       multiline: true,
                       rows: 5,
                       required: true

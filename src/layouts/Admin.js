@@ -19,6 +19,8 @@ import logo from "assets/img/reactlogo.png";
 
 let ps;
 
+const isLoggedIn = () => localStorage.getItem('token') !== null;
+
 const switchRoutes = (
   <Switch>
     {routes.map((prop, key) => {
@@ -41,6 +43,7 @@ const useStyles = makeStyles(styles);
 
 export default function Admin({ ...rest }) {
   // styles
+  const filteredRoutes = routes; //.filter(c => (!c.requiredLogin || isLoggedIn()));
   const classes = useStyles();
   // ref to help us initialize PerfectScrollbar on windows devices
   const mainPanel = React.createRef();
@@ -81,8 +84,8 @@ export default function Admin({ ...rest }) {
   return (
     <div className={classes.wrapper}>
       <Sidebar
-        routes={routes}
-        logoText={"Creative Tim"}
+        routes={filteredRoutes}
+        logoText={"SOCI's HUNT"}
         logo={logo}
         image={image}
         handleDrawerToggle={handleDrawerToggle}
@@ -92,7 +95,7 @@ export default function Admin({ ...rest }) {
       />
       <div className={classes.mainPanel} ref={mainPanel}>
         <Navbar
-          routes={routes}
+          routes={filteredRoutes}
           handleDrawerToggle={handleDrawerToggle}
           {...rest}
         />
