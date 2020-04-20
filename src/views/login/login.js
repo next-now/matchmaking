@@ -10,6 +10,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { withRouter } from 'react-router-dom';
 
 function Copyright() {
   return (
@@ -44,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Login() {
+function Login(props) {
   const classes = useStyles();
 
   return (
@@ -78,8 +79,14 @@ export default function Login() {
           })
               .then(response => response.json())
               .then(body => {
+                if(body.token) {
                 localStorage.setItem('token', body.token.token);
                 localStorage.setItem('user', JSON.stringify(body.data));
+                console.log("redirecting");
+                props.history.push('/soci-hunt/help-request');
+                } else {
+                  alert("wrong user name or password")
+                }
               });
         }}>
           <Grid container spacing={2}>
@@ -128,3 +135,5 @@ export default function Login() {
     </Container>
   );
 }
+
+export default withRouter(Login);

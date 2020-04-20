@@ -12,6 +12,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { withRouter } from 'react-router-dom';
+
 
 
 function Copyright() {
@@ -47,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp() {
+function SignUp(props) {
   const classes = useStyles();
 
   return (
@@ -88,6 +90,8 @@ export default function SignUp() {
             referrerPolicy: 'no-referrer',
           })
               .then(() => {
+                props.history.push('/soci-hunt/login');
+
               });
         }}>
           <Grid container spacing={2}>
@@ -180,3 +184,5 @@ export default function SignUp() {
     </Container>
   );
 }
+
+export default withRouter(SignUp)
