@@ -19,7 +19,7 @@ import logo from "assets/img/reactlogo.png";
 
 let ps;
 
-const isLoggedIn = () => localStorage.getItem('token') !== null;
+// const isLoggedIn = () => localStorage.getItem('token') !== null;
 
 const switchRoutes = (
   <Switch>
